@@ -56,7 +56,7 @@ public class EventTest {
 	 */
 	private Event createEvent() {
 
-		// Mocked apliances
+		// Mocked appliances
 
 		clock = mock(Appliance.class);
 		toaster = mock(Appliance.class);

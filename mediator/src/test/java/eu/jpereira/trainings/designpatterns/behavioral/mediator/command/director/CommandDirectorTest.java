@@ -15,26 +15,27 @@
  */
 package eu.jpereira.trainings.designpatterns.behavioral.mediator.command.director;
 
-import static org.mockito.Mockito.doThrow;
-import static org.mockito.Mockito.inOrder;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-
 import org.junit.Test;
 import org.mockito.InOrder;
 
 import eu.jpereira.trainings.designpatterns.behavioral.mediator.appliance.Appliance;
 import eu.jpereira.trainings.designpatterns.behavioral.mediator.appliance.ApplianceCommunicationException;
 import eu.jpereira.trainings.designpatterns.behavioral.mediator.appliance.director.CommandDirector;
-import eu.jpereira.trainings.designpatterns.behavioral.mediator.appliance.director.DefaulCommandDirector;
+import eu.jpereira.trainings.designpatterns.behavioral.mediator.appliance.director.DefaultCommandDirector;
 import eu.jpereira.trainings.designpatterns.behavioral.mediator.appliance.director.ErrorDirectingCommandsException;
 import eu.jpereira.trainings.designpatterns.behavioral.mediator.command.Command;
 import eu.jpereira.trainings.designpatterns.behavioral.mediator.command.Event;
 import eu.jpereira.trainings.designpatterns.behavioral.mediator.command.StartApplianceCommand;
 import eu.jpereira.trainings.designpatterns.behavioral.mediator.command.TurnOnApplianceCommand;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+import static org.mockito.Mockito.*;
+
 /**
- * A Test for {@link DefaulCommandDirector}
+ * A Test for {@link DefaultCommandDirector}
  * 
  * @author jpereira
  * 
@@ -83,7 +84,7 @@ public class CommandDirectorTest {
 		director.addCommand(event, otherCommand);
 		// Will simulate an exception from toaster.start
 		doThrow(new ApplianceCommunicationException()).when(toaster).start();
-		// when(toaster.start())
+		// when(toaster.start());
 
 		// Run the director
 		try {
@@ -97,7 +98,7 @@ public class CommandDirectorTest {
 
 		inOrder.verify(clock).start();// Ok
 		inOrder.verify(toaster).turnOn();// Ok
-		// verify(ttoaster).start(); //fail
+		// verify(toaster).start(); //fail
 
 		inOrder.verify(toaster).stop(); // rollback
 		inOrder.verify(toaster).turnOff(); // rollback
@@ -109,7 +110,7 @@ public class CommandDirectorTest {
 	 * @return
 	 */
 	private Event createEvent() {
-		// Mocked apliances
+		// Mocked appliances
 
 		clock = mock(Appliance.class);
 		toaster = mock(Appliance.class);
@@ -138,9 +139,6 @@ public class CommandDirectorTest {
 	 * @return
 	 */
 	protected CommandDirector createCommandDirector() {
-		//TODO: 1) Go DefaultCommandDirector and follow the TODOs. Come back here and return an instance of DefaultCommandDirector 
-		return null;
-		//TODO: Uncomment after complete TODO 1
-		//return new DefaulCommandDirector();
+		return new DefaultCommandDirector();
 	}
 }

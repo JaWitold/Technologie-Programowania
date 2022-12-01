@@ -15,18 +15,12 @@
  */
 package eu.jpereira.trainings.designpatterns.behavioral.mediator.appliance.director;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Stack;
+import java.util.*;
 
-import eu.jpereira.trainings.designpatterns.behavioral.mediator.command.Command;
-import eu.jpereira.trainings.designpatterns.behavioral.mediator.command.CouldNotExecuteCommandException;
-import eu.jpereira.trainings.designpatterns.behavioral.mediator.command.CouldNotRollbackCommandException;
-import eu.jpereira.trainings.designpatterns.behavioral.mediator.command.UndoableCommand;
+import eu.jpereira.trainings.designpatterns.behavioral.mediator.command.*;
 
 /**
- * A default implemenatation of a {@link CommandDirector}
+ * A default implementation of a {@link CommandDirector}
  * @author jpereira
  *
  *
@@ -35,13 +29,12 @@ import eu.jpereira.trainings.designpatterns.behavioral.mediator.command.Undoable
  * Implement first a test for this method
  * 
  * 
- * TODO: Implement {@link CommandDirector}.
- * public class DefaultCommandDirector implements CommandDirector 
+ * public class DefaultCommandDirector implements CommandDirector
  */
 
-public class DefaulCommandDirector {
+public class DefaultCommandDirector implements CommandDirector {
 
-	// Fail Strategy. It will define how the DirectorrWill fail. Should it try to recover, ignore, fail-fast? 
+	// Fail Strategy. It will define how the Director will fail. Should it try to recover, ignore, fail-fast?
 	protected FailStategy failStrategy = null;
 	//The commands to be executed by this director
 	protected List<Command> commands = null;
@@ -51,7 +44,7 @@ public class DefaulCommandDirector {
 	/**
 	 * Create new DefaultCommandDirector
 	 */
-	public DefaulCommandDirector() {
+	public DefaultCommandDirector() {
 		//Use DEFAULT. Will do a rollback after a first command execution failure
 		this.failStrategy = FailStategy.DEFAULT;
 		//Delegate instantiation to a factory method
@@ -67,12 +60,10 @@ public class DefaulCommandDirector {
 	 * .CommandDirector#setFailStrategy(eu.jpereira.trainings.designpatterns.
 	 * behavioral.mediator.appliance.director.FailStategy)
 	 */
-	//TODO: Uncomment method and complete it
-	/*@Override
+	@Override
 	public void setFailStrategy(FailStategy strategy) {
-		//TODO: Set this strategy to param strategy
-
-	}*/
+		failStrategy = strategy;
+	}
 
 	/*
 	 * (non-Javadoc)
@@ -81,8 +72,7 @@ public class DefaulCommandDirector {
 	 * eu.jpereira.trainings.designpatterns.behavioral.mediator.appliance.director
 	 * .CommandDirector#run()
 	 */
-	//TODO: Uncomment method and complete
-	/*
+
 	@Override
 	public void run() throws ErrorDirectingCommandsException {
 		for (Command command : this.commands) {
@@ -90,8 +80,7 @@ public class DefaulCommandDirector {
 			try {
 			    //Push the command to the stack of executed commands
 				executedCommands.push(command);
-				//TODO: Call command execute();
-				
+				command.execute();
 			} catch (CouldNotExecuteCommandException e) {
 				// Default strategy is to rollback
 				rollback();
@@ -99,11 +88,10 @@ public class DefaulCommandDirector {
 				e.printStackTrace();
 				// abstract
 				throw new ErrorDirectingCommandsException(e.fillInStackTrace());
-
 			}
 		}
 
-	}*/
+	}
 
 	
 
@@ -118,29 +106,36 @@ public class DefaulCommandDirector {
 	 * eu.jpereira.trainings.designpatterns.behavioral
 	 * .mediator.command.Command[])
 	 */
-	//TODO: Uncomment the following method and complet it
-	/*
+
 	@Override
 	public void addCommand(Command command, Command... commands) {
-		//TODO: Add the argument command to the list of commands to be executed by this CommandDirector
-		
-		//Add the Commands in the Arrsy of argument commands to the list of commands to execute
+		//Add the Commands in the Arrays of argument commands to the list of commands to execute
+		if(command instanceof Event) {
+			for (Command value : (Event) command) {
+				this.commands.add(value);
+			}
+		}
 		if (commands != null && commands.length > 0) {
 			this.commands.addAll(Arrays.asList(commands));
 		}
-	}*/
-	
+	}
+
+	@Override
+	public void addExceptionCommands(Class<? extends Throwable> exClass, Command... commands) {
+
+	}
+
 	/**
 	 * Rollback the command execution
 	 */
 	private void rollback() {
 		while (!executedCommands.isEmpty()) {
 			//Pop the last executed command....
-			Command rollBackcommand = executedCommands.pop();
-			if (rollBackcommand instanceof UndoableCommand) {
+			Command rollBackCommand = executedCommands.pop();
+			if (rollBackCommand instanceof UndoableCommand) {
 				try {
 					//Rollback it
-					((UndoableCommand) rollBackcommand).rollback();
+					((UndoableCommand) rollBackCommand).rollback();
 				} catch (CouldNotRollbackCommandException e) {
 					// Ignore
 					e.printStackTrace();

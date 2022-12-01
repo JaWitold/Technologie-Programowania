@@ -28,9 +28,9 @@ public interface CommandDirector {
 	/**
 	 * Set the strategy for when some command in the director fails to execute
 	 * 
-	 * @param stategy
+	 * @param strategy
 	 */
-	void setFailStrategy(FailStategy stategy);
+	void setFailStrategy(FailStategy strategy);
 
 	/**
 	 * Will execute all commands according to the {@link FailStategy} set in
@@ -43,9 +43,11 @@ public interface CommandDirector {
 
 	/**
 	 * Will add all commands to the list of commands to direct.
-	 * If an command in undoable, them will try to rollback the command after command failure
+	 * If a command in undoable, them will try to roll back the command after command failure
 	 * @param command A Command
 	 * @param commands Array of commands. 
 	 */
 	void addCommand(Command command, Command...commands);
+
+	void addExceptionCommands(Class<? extends Throwable> exClass, Command...commands);
 }
