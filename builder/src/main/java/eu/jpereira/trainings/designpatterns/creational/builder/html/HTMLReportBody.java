@@ -1,4 +1,4 @@
-package eu.jpereira.trainings.designpatterns.creational.builder;
+package eu.jpereira.trainings.designpatterns.creational.builder.html;
 
 import eu.jpereira.trainings.designpatterns.creational.builder.model.ReportBody;
 
