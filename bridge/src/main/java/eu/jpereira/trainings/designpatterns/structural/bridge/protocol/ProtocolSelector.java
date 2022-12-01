@@ -50,17 +50,17 @@ public class ProtocolSelector {
 		list.add(new WIFIProtocol());
 		list.add(new WIMAXProtocol());
 		// Call
-		list.addAll(createAditionalProtocols());
+		list.addAll(createAdditionalProtocols());
 		return list;
 	}
 
 	/**
 	 * factory method for additional protocols. If you want to add more
 	 * protocols, override this method and return a list with more protocols
-	 * 
+	 *
 	 * @return
 	 */
-	protected Collection<Protocol> createAditionalProtocols() {
+	protected Collection<Protocol> createAdditionalProtocols() {
 		return Collections.<Protocol> emptyList();
 	}
 
