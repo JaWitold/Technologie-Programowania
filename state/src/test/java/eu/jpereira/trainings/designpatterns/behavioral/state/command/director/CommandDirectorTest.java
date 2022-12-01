@@ -86,6 +86,7 @@ public class CommandDirectorTest {
 		// when(toaster.start())
 
 		// Run the director
+		exceptionRule.expect(ErrorDirectingCommandsException)
 		try {
 			director.run();
 		} catch (ErrorDirectingCommandsException e) {

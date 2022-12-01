@@ -27,7 +27,7 @@ public class UnknowState implements ApplianceStateBehavior {
 	@Override
 	public ApplianceState getState() {
 		// TODO Auto-generated method stub
-		return null;
+		return ApplianceState.UNKNOW;
 	}
 
 	/* (non-Javadoc)
@@ -36,7 +36,7 @@ public class UnknowState implements ApplianceStateBehavior {
 	@Override
 	public ApplianceStateBehavior start() {
 		// TODO Auto-generated method stub
-		return null;
+		return ApplianceState.STARTED.getStateBehavior();
 	}
 
 	/* (non-Javadoc)
@@ -45,7 +45,7 @@ public class UnknowState implements ApplianceStateBehavior {
 	@Override
 	public ApplianceStateBehavior stop() {
 		// TODO Auto-generated method stub
-		return null;
+		return ApplianceState.STOPPED.getStateBehavior();
 	}
 
 	/* (non-Javadoc)
@@ -54,7 +54,7 @@ public class UnknowState implements ApplianceStateBehavior {
 	@Override
 	public ApplianceStateBehavior turnOn() {
 		// TODO Auto-generated method stub
-		return null;
+		return ApplianceState.ON.getStateBehavior();
 	}
 
 	/* (non-Javadoc)
@@ -63,7 +63,7 @@ public class UnknowState implements ApplianceStateBehavior {
 	@Override
 	public ApplianceStateBehavior turnOff() {
 		// TODO Auto-generated method stub
-		return null;
+		return ApplianceState.OFF.getStateBehavior();
 	}
 
 }
