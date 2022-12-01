@@ -23,5 +23,5 @@ package eu.jpereira.trainings.designpatterns.behavioral.iterator.commands.model;
  */
 public enum DBServerInstanceStatus {
 
-	STARTED, STOPPED, UNKNOW;
+	STARTED, STOPPED, UNKNOWN;
 }

@@ -26,7 +26,7 @@ import eu.jpereira.trainings.designpatterns.behavioral.iterator.commands.model.D
  */
 public class SpyDBServerInstance implements DBServerInstance {
 
-	DBServerInstanceStatus status = DBServerInstanceStatus.UNKNOW;
+	DBServerInstanceStatus status = DBServerInstanceStatus.UNKNOWN;
 	private String ipAddress;
 
 	/**

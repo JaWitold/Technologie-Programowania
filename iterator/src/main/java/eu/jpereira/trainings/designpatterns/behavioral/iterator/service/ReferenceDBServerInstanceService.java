@@ -145,14 +145,14 @@ public class ReferenceDBServerInstanceService implements DBServerInstanceService
 
 		// Execute sync, now
 		startCommand.execute();
-		// TODO: IGNORE THIS IN THE EXECISE: FIX the cast
+		// TODO: IGNORE THIS IN THE EXERCISE: FIX the cast
 		QueryInstanceStatusResult result = (QueryInstanceStatusResult) startCommand.getResult();
 		return result.getResult();
 
 	}
 
 	/**
-	 * @param instance
+	 * @param ipAddress
 	 * @param groupName
 	 * @return
 	 * @throws GroupNotFoundException

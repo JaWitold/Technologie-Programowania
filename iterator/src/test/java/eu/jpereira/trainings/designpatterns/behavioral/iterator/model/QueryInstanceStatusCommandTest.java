@@ -72,13 +72,13 @@ public class QueryInstanceStatusCommandTest {
 		DBServerInstance instance = createMockedDBServerInstance();
 		Command command = new QueryInstanceStatusCommand(instance);
 
-		when(instance.getInstanceStatus()).thenReturn(DBServerInstanceStatus.UNKNOW);
+		when(instance.getInstanceStatus()).thenReturn(DBServerInstanceStatus.UNKNOWN);
 		command.execute();
 
 		DBServerInstanceResult<DBServerInstanceStatus> result = command.getResult();
 		DBServerInstanceStatus status = result.getResult();
 
-		assertEquals(DBServerInstanceStatus.UNKNOW, status);
+		assertEquals(DBServerInstanceStatus.UNKNOWN, status);
 	}
 
 	/**
