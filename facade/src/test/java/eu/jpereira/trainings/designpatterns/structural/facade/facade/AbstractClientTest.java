@@ -23,8 +23,7 @@ import eu.jpereira.trainings.designpatterns.structural.facade.service.BookDBServ
 import eu.jpereira.trainings.designpatterns.structural.facade.service.CustomerDBService;
 import eu.jpereira.trainings.designpatterns.structural.facade.service.CustomerNotificationService;
 import eu.jpereira.trainings.designpatterns.structural.facade.service.OrderingService;
-import eu.jpereira.trainings.designpatterns.structural.facade.service.WharehouseService;
-import eu.jpereira.trainings.designpatterns.structural.facade.service.fake.FakeCustomerNotificationService;
+import eu.jpereira.trainings.designpatterns.structural.facade.service.WarehouseService;
 
 /**
  * @author jpereira
@@ -37,7 +36,7 @@ public class AbstractClientTest {
 	protected BookDBService bookService;
 	protected OrderingService orderingService;
 	protected CustomerNotificationService customerNotificationService;
-	protected WharehouseService warehouseService;
+	protected WarehouseService warehouseService;
 
 	@Before
 	public void setupFakeServices() {
@@ -91,8 +90,8 @@ public class AbstractClientTest {
 	 * 
 	 * @return
 	 */
-	protected WharehouseService getMockedWareHouseService() {
-		return mock(WharehouseService.class);
+	protected WarehouseService getMockedWareHouseService() {
+		return mock(WarehouseService.class);
 	}
 
 }

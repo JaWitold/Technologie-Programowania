@@ -22,7 +22,7 @@ import eu.jpereira.trainings.designpatterns.structural.facade.model.Order;
  * @author jpereira
  *
  */
-public interface WharehouseService {
+public interface WarehouseService {
 
 	/**
 	 * @param order
