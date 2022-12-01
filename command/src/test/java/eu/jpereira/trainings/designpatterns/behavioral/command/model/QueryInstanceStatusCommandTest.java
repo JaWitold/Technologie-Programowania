@@ -17,7 +17,12 @@ package eu.jpereira.trainings.designpatterns.behavioral.command.model;
 
 import static org.mockito.Mockito.mock;
 import static org.junit.Assert.*;
+import static org.mockito.Mockito.when;
 
+import eu.jpereira.trainings.designpatterns.behavioral.command.model.command.Command;
+import eu.jpereira.trainings.designpatterns.behavioral.command.model.command.QueryInstanceStatusCommand;
+import eu.jpereira.trainings.designpatterns.behavioral.command.model.command.results.DBServerInstanceResult;
+import eu.jpereira.trainings.designpatterns.behavioral.command.model.exceptions.CouldNotConnectException;
 import org.junit.Test;
 
 import eu.jpereira.trainings.designpatterns.behavioral.command.scheduler.CommandScheduler;
@@ -56,27 +61,27 @@ public class QueryInstanceStatusCommandTest {
 	/**
 	 * After uncommenting all other tests, remove this
 	 */
-	@Test
-	public void deleteThisTest() {
-		fail("Go to class QueryInstanceStatusCommandTest and find the TODO. Complete the TODOs and start fixing the errors by following the TODOs in other Classes. Remove this test!");
-	
-	}
+//	@Test
+//	public void deleteThisTest() {
+//		fail("Go to class QueryInstanceStatusCommandTest and find the TODO. Complete the TODOs and start fixing the errors by following the TODOs in other Classes. Remove this test!");
+//
+//	}
 	
 	//TODO: EXERCISE: Uncomment implementation
-	/*@SuppressWarnings("unchecked")
+	@SuppressWarnings("unchecked")
 	@Test
 	public void testGetServerInstanceStatus() throws CouldNotConnectException {
 		DBServerInstance instance = createMockedDBServerInstance();
 		Command command = new QueryInstanceStatusCommand(instance);
-	
+
 		when(instance.getInstanceStatus()).thenReturn(DBServerInstanceStatus.UNKNOW);
 		command.execute();
-		
+
 		DBServerInstanceResult<DBServerInstanceStatus> result = command.getResult();
 		DBServerInstanceStatus status = result.getResult();
-		
+
 		assertEquals(DBServerInstanceStatus.UNKNOW, status );
-	}*/
+	}
 
 	/**
 	 * @return

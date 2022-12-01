@@ -15,6 +15,8 @@
  */
 package eu.jpereira.trainings.designpatterns.behavioral.command.model;
 
+import eu.jpereira.trainings.designpatterns.behavioral.command.model.command.Command;
+
 /**
  * A Factory of Commands. You could group them by node ip, group or whatever to
  * better manager the instances created by the factory. You could also re-use
@@ -31,18 +33,18 @@ public interface CommandFactory {
 	 * @param receiver
 	 * @return
 	 */
-	// Command createStartCommand(DBServerInstance receiver);
+	 Command createStartCommand(DBServerInstance receiver);
 
 	/**
 	 * @param receiver
 	 * @return
 	 */
-	// Command createStopCommand(DBServerInstance receiver);
+	 Command createStopCommand(DBServerInstance receiver);
 
 	/**
 	 * @param receiver
 	 * @return
 	 */
-	// Command createQueryInstanceStatusCommand(DBServerInstance receiver);
+	 Command createQueryInstanceStatusCommand(DBServerInstance receiver);
 
 }

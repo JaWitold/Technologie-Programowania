@@ -21,6 +21,9 @@ import eu.jpereira.trainings.designpatterns.behavioral.command.model.DBServerIns
 import eu.jpereira.trainings.designpatterns.behavioral.command.model.DBServerInstanceStatus;
 import eu.jpereira.trainings.designpatterns.behavioral.command.model.DAO.DBServerInstanceGroupDAO;
 import eu.jpereira.trainings.designpatterns.behavioral.command.model.DAO.DBServerInstanceGroupNotFoundException;
+import eu.jpereira.trainings.designpatterns.behavioral.command.model.command.Command;
+import eu.jpereira.trainings.designpatterns.behavioral.command.model.command.CommandJob;
+import eu.jpereira.trainings.designpatterns.behavioral.command.model.command.results.QueryInstanceStatusResult;
 import eu.jpereira.trainings.designpatterns.behavioral.command.model.exceptions.CouldNotConnectException;
 import eu.jpereira.trainings.designpatterns.behavioral.command.scheduler.CommandScheduler;
 import eu.jpereira.trainings.designpatterns.behavioral.command.scheduler.Schedule;
@@ -53,7 +56,7 @@ public class ReferenceDBServerInstanceService implements DBServerInstanceService
 	@Override
 	public void startGroup(String groupName, Schedule schedule) throws CouldNotConnectException, GroupNotFoundException {
 		//TODO: EXERCISE: Uncomment implementation
-		/*
+
 		DBServerInstanceGroup group = findGroup(groupName);
 		// Create a new JOB
 		// TODO: IGNORE THIS IN THE EXERCISE: Move this to a job manager object
@@ -66,7 +69,7 @@ public class ReferenceDBServerInstanceService implements DBServerInstanceService
 
 		}
 		this.scheduler.schedule(job, schedule);
-	*/
+
 	}
 
 	/*
@@ -81,7 +84,7 @@ public class ReferenceDBServerInstanceService implements DBServerInstanceService
 	public void stopGroup(String groupName, Schedule schedule) throws CouldNotConnectException, GroupNotFoundException {
 		//TODO: EXERCISE: Uncomment implementation
 		
-		/*
+
 		DBServerInstanceGroup group = findGroup(groupName);
 		// Create a new JOB
 		// TODO: IGNORE THIS IN THE EXERCISE: Move this to a job manager object		
@@ -94,7 +97,7 @@ public class ReferenceDBServerInstanceService implements DBServerInstanceService
 
 		}
 		this.scheduler.schedule(job, schedule);
-	*/
+
 	}
 
 	/*
@@ -106,12 +109,12 @@ public class ReferenceDBServerInstanceService implements DBServerInstanceService
 	@Override
 	public void startInstance(String ipAddress, String groupName, Schedule schedule) throws CouldNotConnectException, GroupNotFoundException, InstanceNotFoundException {
 		//TODO: EXERCISE: Uncomment implementation
-		/*
+
 		// Create a command from a factory
 		Command startCommand = commandFactory.createStartCommand(findInstance(ipAddress, groupName));
 		// Send to scheduler
 		scheduler.schedule(startCommand, schedule);
-		*/
+
 	}
 
 	/*
@@ -124,12 +127,12 @@ public class ReferenceDBServerInstanceService implements DBServerInstanceService
 	public void stopInstance(String ipAddress, String groupName, Schedule schedule) throws CouldNotConnectException, GroupNotFoundException, InstanceNotFoundException {
 
 		//TODO: EXERCISE: Uncomment implementation
-		/*
+
 		// Create a command from a factory
 		Command startCommand = commandFactory.createStopCommand(findInstance(ipAddress, groupName));
 		// Send to scheduler
 		scheduler.schedule(startCommand, schedule);
-	*/
+
 	}
 
 	/*
@@ -142,21 +145,19 @@ public class ReferenceDBServerInstanceService implements DBServerInstanceService
 	@Override
 	public DBServerInstanceStatus getInstanceStatus(String ipAddress, String groupName) throws CouldNotConnectException, GroupNotFoundException, InstanceNotFoundException {
 		//TODO: EXERCISE: Uncomment implementation
-		/*
+
 		// Create a command from a factory
 		Command startCommand = commandFactory.createQueryInstanceStatusCommand(findInstance(ipAddress, groupName));
 
 		// Execute sync, now
 		startCommand.execute();
-		// TODO: IGNORE THIS IN THE EXECISE: FIX the cast
+		// TODO: IGNORE THIS IN THE EXERCISE: FIX the cast
 		QueryInstanceStatusResult result = (QueryInstanceStatusResult) startCommand.getResult();
 		return result.getResult();
-		 */
-		return null;
 	}
 
 	/**
-	 * @param instance
+	 * @param ipAddress
 	 * @param groupName
 	 * @return
 	 * @throws GroupNotFoundException

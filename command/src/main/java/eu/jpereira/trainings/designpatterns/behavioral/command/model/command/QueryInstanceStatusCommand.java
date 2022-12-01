@@ -17,13 +17,14 @@ package eu.jpereira.trainings.designpatterns.behavioral.command.model.command;
 
 import eu.jpereira.trainings.designpatterns.behavioral.command.model.DBServerInstance;
 import eu.jpereira.trainings.designpatterns.behavioral.command.model.command.results.QueryInstanceStatusResult;
+import eu.jpereira.trainings.designpatterns.behavioral.command.model.exceptions.CouldNotConnectException;
 
 /**
  * A command to query the status of a {@link DBServerInstance}
  * @author jpereira
  *
  */
-public class QueryInstanceStatusCommand extends DBServerInstanceCommand {
+public class QueryInstanceStatusCommand extends DBServerInstanceCommand implements Command{
 
 	private QueryInstanceStatusResult result = null;
 	/**
@@ -41,22 +42,22 @@ public class QueryInstanceStatusCommand extends DBServerInstanceCommand {
 	 * @see eu.jpereira.trainings.designpatterns.behavioral.command.model.command.Command#execute()
 	 */
 	//TODO: EXERCISE: Uncomment 
-	/*
+
 	@Override
 	public void execute() throws CouldNotConnectException {
 		this.result = new QueryInstanceStatusResult(this.receiver.getInstanceStatus());
 
-	}*/
+	}
 
 	/* (non-Javadoc)
 	 * @see eu.jpereira.trainings.designpatterns.behavioral.command.model.command.Command#getResult()
 	 */
 	//TODO: EXERCISE: Uncomment 
-    /* @Override
+    @Override
 	public QueryInstanceStatusResult getResult() {
 
 		return this.result;
-	}*/
+	}
 
 	
 

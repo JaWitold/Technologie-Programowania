@@ -24,7 +24,7 @@ import eu.jpereira.trainings.designpatterns.behavioral.command.model.exceptions.
  * @author jpereira
  *
  */
-public class StartInstanceCommand extends DBServerInstanceCommand {
+public class StartInstanceCommand extends DBServerInstanceCommand implements Command {
 
 	
 	/**
@@ -37,21 +37,21 @@ public class StartInstanceCommand extends DBServerInstanceCommand {
 	}
 
 	//TODO: EXERCISE: Uncomment 
-	/*
+
 	@Override
 	public void execute() throws CouldNotConnectException {
 		receiver.startInstance();
-	}*/
+	}
 
 	/* (non-Javadoc)
 	 * @see eu.jpereira.trainings.designpatterns.behavioral.command.model.command.Command#getResult()
 	 */
 	//TODO: EXERCISE: Uncomment 
-	/*
+
 	@SuppressWarnings("rawtypes")
 	@Override
 	public DBServerInstanceResult getResult() {
 		return null;
-	}*/
+	}
 
 }
