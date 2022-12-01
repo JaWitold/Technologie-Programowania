@@ -50,7 +50,7 @@ public class FakeFilterChain implements FilterChain {
 	}
 
 	/**
-	 * Add a filter to a list. The fisrt to be added, the first to run
+	 * Add a filter to a list. The first to be added, the first to run
 	 * 
 	 * @param filter
 	 */
