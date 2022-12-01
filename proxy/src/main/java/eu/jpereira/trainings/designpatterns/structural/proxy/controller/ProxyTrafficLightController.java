@@ -22,7 +22,7 @@ import java.lang.reflect.Proxy;
 import eu.jpereira.trainings.designpatterns.structural.proxy.controller.exceptions.CouldNotConnectException;
 
 /**
- * This class is being used to wrap an proxy
+ * This class is being used to wrap a proxy
  * 
  * @author joao
  * 
@@ -67,7 +67,7 @@ public class ProxyTrafficLightController extends TrafficLightController implemen
 	 */
 	@Override
 	public void sendPowerCommand(ControllerCommand command) throws CouldNotConnectException {
-		//Call the proxy, wich is an instance of java.lang.reflect.Proxy
+		//Call the proxy, which is an instance of java.lang.reflect.Proxy
 		proxy.sendPowerCommand(command);
 
 	}
@@ -82,7 +82,7 @@ public class ProxyTrafficLightController extends TrafficLightController implemen
 	 */
 	@Override
 	public void sendLightCommand(ControllerCommand command) throws CouldNotConnectException {
-		//Call the proxy, wich is an instance of java.lang.reflect.Proxy
+		//Call the proxy, which is an instance of java.lang.reflect.Proxy
 		proxy.sendLightCommand(command);
 	}
 
@@ -97,7 +97,7 @@ public class ProxyTrafficLightController extends TrafficLightController implemen
 		System.out.println("Im a proxy and invoke the method in a real object");
 		int failures = 0;
 		boolean success = false;
-		Exception lastExeption = null;
+		Exception lastException = null;
 		Object result = null;
 		while (!success) {
 
@@ -108,11 +108,11 @@ public class ProxyTrafficLightController extends TrafficLightController implemen
 			} catch (Exception e) {
 				failures++;
 				System.err.println("Retrying Failure: " + failures);
-				lastExeption = e;
+				lastException = e;
 			}
 
 			if (failures > retries) {
-				throw new CouldNotConnectException(lastExeption);
+				throw new CouldNotConnectException(lastException);
 			}
 			// Wait
 			Thread.currentThread().wait(this.msBetweenRetries);
