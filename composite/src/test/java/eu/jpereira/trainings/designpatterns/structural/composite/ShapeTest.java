@@ -79,7 +79,7 @@ public class ShapeTest {
 	@Test
 	public void testMoveShape() {
 		Shape testShape = createCompositeShapeFixture();
-		//Move a the shape
+		//Move a shape
 		testShape.move(2, 2);
 		assertEquals(2,testShape.getX());
 		assertEquals(2, testShape.getY());

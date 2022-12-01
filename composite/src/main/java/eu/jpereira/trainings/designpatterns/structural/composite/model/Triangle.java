@@ -28,7 +28,6 @@ public class Triangle extends CompositeShape{
 	 */
 	@Override
 	public ShapeType getType() {
-		// TODO Auto-generated method stub
 		return ShapeType.TRIANGLE;
 	}
 

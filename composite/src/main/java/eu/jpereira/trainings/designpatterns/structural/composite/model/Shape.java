@@ -28,12 +28,11 @@ public abstract class Shape {
 	/**
 	 * If this object is a CompositeShape, return it. Null otherwise.
 	 * 
-	 * @return an compositeShape instance if this is an composite, null
+	 * @return an compositeShape instance if this is a composite, null
 	 *         otherwise
 	 */
 	public CompositeShape asComposite() {
-		//TODO: Implement
-		return null;
+		return this instanceof CompositeShape ? (CompositeShape) this : null;
 	}
 
 	/**
@@ -41,14 +40,16 @@ public abstract class Shape {
 	 * 
 	 * @param xIncrement
 	 *            The increment in X axis
-	 * @param yIncremet
+	 * @param yIncrement
 	 *            The increment in the Y axis
 	 */
 	public void move(int xIncrement, int yIncrement) {
 		this.x += xIncrement;
 		this.y += yIncrement;
 		// if is composite, delegate to children
-		//TODO: COmplete
+		if(this instanceof CompositeShape) {
+			this.asComposite().getShapes().forEach(shape -> shape.move(xIncrement, yIncrement));
+		}
 	}
 
 	/**
@@ -59,8 +60,7 @@ public abstract class Shape {
 	}
 
 	/**
-	 * @param x
-	 *            the x coordinate to set
+	 * @param x the x coordinate to set
 	 */
 	public void setX(int x) {
 		this.x = x;
@@ -74,15 +74,14 @@ public abstract class Shape {
 	}
 
 	/**
-	 * @param y
-	 *            the y coordinate to set
+	 * @param y the y coordinate to set
 	 */
 	public void setY(int y) {
 		this.y = y;
 	}
 
 	/**
-	 * Each instance of a Shape must know it's type
+	 * Each instance of a Shape must know its type
 	 * @return
 	 */
 	public abstract ShapeType getType();

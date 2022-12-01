@@ -21,9 +21,6 @@ package eu.jpereira.trainings.designpatterns.structural.composite.model;
  */
 public class ShapeDoesNotSupportChildren extends Exception {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 }
