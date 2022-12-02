@@ -33,7 +33,7 @@ public class Vehicle implements Cloneable {
 	 * @param vehicleParts
 	 */
 	public void setParts(List<VehiclePart> vehicleParts) {
-		// copy the reference for a builded list of created parts
+		// copy the reference for a built list of created parts
 		this.parts = vehicleParts;
 
 	}
@@ -51,7 +51,7 @@ public class Vehicle implements Cloneable {
 	}
 
 	/**
-	 * @param class1
+	 * @param type
 	 * @return
 	 * @throws VehicleDoesNotHavePartsException 
 	 */
@@ -71,7 +71,9 @@ public class Vehicle implements Cloneable {
 	@Override
 	public Object clone() throws CloneNotSupportedException {
 		//TODO: Implement clone
-		return super.clone();
+		Vehicle cloned =  new Vehicle();
+		cloned.setParts(this.parts);
+		return cloned;
 	}
 	
 	
