@@ -39,7 +39,7 @@ public class CommunicationStrategyTest {
 		appliance.turnOn();
 		assertEquals(ApplianceState.ON, appliance.getState());
 		
-		//The strategy must been called
+		//The strategy must have been called
 		verify(strategy).connect(any(ConnectionProperties.class));
 		verify(strategy).sendRequest(any(Request.class));
 		verify(strategy).disconnect();

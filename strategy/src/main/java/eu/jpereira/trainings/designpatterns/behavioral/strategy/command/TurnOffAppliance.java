@@ -46,7 +46,7 @@ public class TurnOffAppliance extends AbstractCommand {
 		} catch (ApplianceCommunicationException e) {
 			// Log it
 			e.printStackTrace();
-			// Ecapsulate exception
+			// Encapsulate exception
 			throw new CouldNotExecuteCommandException(e.fillInStackTrace());
 		}
 

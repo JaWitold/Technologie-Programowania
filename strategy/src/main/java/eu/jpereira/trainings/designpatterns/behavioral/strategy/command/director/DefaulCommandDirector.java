@@ -44,7 +44,7 @@ public class DefaulCommandDirector implements CommandDirector {
 
 	// Fail Strategy. It will define how the DirectorrWill fail. Should it try
 	// to recover, ignore, fail-fast?
-	protected FailStategy failStrategy = null;
+	protected FailStrategy failStrategy = null;
 	// The commands to be executed by this director
 	protected List<Command> commands = null;
 	// Stack maintaining the commands already executed. Used for rollback
@@ -57,7 +57,7 @@ public class DefaulCommandDirector implements CommandDirector {
 	public DefaulCommandDirector() {
 		// Use DEFAULT. Will do a rollback after a first command execution
 		// failure
-		this.failStrategy = FailStategy.DEFAULT;
+		this.failStrategy = FailStrategy.DEFAULT;
 		// Delegate instantiation to a factory method
 		this.commands = createCommands();
 		// Delegate instantiation to a factory method
@@ -74,7 +74,7 @@ public class DefaulCommandDirector implements CommandDirector {
 	 */
 
 	@Override
-	public void setFailStrategy(FailStategy strategy) {
+	public void setFailStrategy(FailStrategy strategy) {
 		this.failStrategy = strategy;
 
 	}

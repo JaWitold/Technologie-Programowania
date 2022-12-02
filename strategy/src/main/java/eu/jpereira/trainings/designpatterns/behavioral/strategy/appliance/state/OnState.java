@@ -46,7 +46,7 @@ public class OnState extends AbstractApplianceStateBehavior {
 	@Override
 	public ApplianceStateBehavior start() {
 		
-		return ApplianceState.STARTED.getStateBehavior(this.communicationStategy);
+		return ApplianceState.STARTED.getStateBehavior(this.communicationStrategy);
 		
 	}
 
@@ -74,7 +74,7 @@ public class OnState extends AbstractApplianceStateBehavior {
 	@Override
 	public ApplianceStateBehavior turnOff() {
 		//Go Off
-		return ApplianceState.OFF.getStateBehavior(this.communicationStategy);
+		return ApplianceState.OFF.getStateBehavior(this.communicationStrategy);
 	}
 
 }

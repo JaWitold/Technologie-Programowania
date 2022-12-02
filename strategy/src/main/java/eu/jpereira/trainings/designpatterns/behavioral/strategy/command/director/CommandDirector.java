@@ -30,11 +30,11 @@ public interface CommandDirector {
 	 * 
 	 * @param stategy
 	 */
-	void setFailStrategy(FailStategy stategy);
+	void setFailStrategy(FailStrategy stategy);
 
 	/**
-	 * Will execute all commands according to the {@link FailStategy} set in
-	 * {@link CommandDirector#setFailStrategy(FailStategy)}
+	 * Will execute all commands according to the {@link FailStrategy} set in
+	 * {@link CommandDirector#setFailStrategy(FailStrategy)}
 	 * 
 	 * @throws ErrorDirectingCommandsException
 	 *             Encapsulates any error occurring in the process

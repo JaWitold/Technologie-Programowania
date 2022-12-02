@@ -24,7 +24,7 @@ public interface Command {
 
 	
 	/**
-	 * Ececute the command
+	 * Execute the command
 	 * @throws CouldNotExecuteCommandException If the command fails to execute
 	 */
 	void execute() throws CouldNotExecuteCommandException;

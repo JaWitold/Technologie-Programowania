@@ -44,7 +44,7 @@ public class StoppedState extends AbstractApplianceStateBehavior {
 	@Override
 	public ApplianceStateBehavior start() {
 		//Can start
-		return ApplianceState.STARTED.getStateBehavior(this.communicationStategy);
+		return ApplianceState.STARTED.getStateBehavior(this.communicationStrategy);
 	}
 
 	/* (non-Javadoc)
@@ -71,7 +71,7 @@ public class StoppedState extends AbstractApplianceStateBehavior {
 	@Override
 	public ApplianceStateBehavior turnOff() {
 		// After stopped, can go off
-		return ApplianceState.OFF.getStateBehavior(this.communicationStategy);
+		return ApplianceState.OFF.getStateBehavior(this.communicationStrategy);
 	}
 
 }

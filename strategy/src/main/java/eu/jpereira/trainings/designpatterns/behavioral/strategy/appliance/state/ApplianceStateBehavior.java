@@ -22,9 +22,9 @@ package eu.jpereira.trainings.designpatterns.behavioral.strategy.appliance.state
 public interface ApplianceStateBehavior {
 
 	/**
-	 * Return the the state this behavior represents
+	 * Return the state this behavior represents
 	 * 
-	 * @return the the state this behavior represents
+	 * @return the state this behavior represents
 	 */
 	ApplianceState getState();
 
@@ -41,7 +41,7 @@ public interface ApplianceStateBehavior {
 	ApplianceStateBehavior stop();
 
 	/**
-	 * Behavior tunrOn delegated on this object
+	 * Behavior turnOn delegated on this object
 	 * @return the new state if applicable, this otherwise
 	 */
 	ApplianceStateBehavior turnOn();

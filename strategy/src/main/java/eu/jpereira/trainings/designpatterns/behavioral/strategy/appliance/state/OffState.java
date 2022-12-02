@@ -71,10 +71,10 @@ public class OffState extends AbstractApplianceStateBehavior {
 	public ApplianceStateBehavior turnOn() {
 		//Can go from OFF state (this) to ON state
 		//Open the connection. Tests only
-		this.communicationStategy.connect(new ConnectionProperties());
-		this.communicationStategy.sendRequest(new Request());
-		this.communicationStategy.disconnect();
-		return ApplianceState.ON.getStateBehavior(this.communicationStategy);
+		this.communicationStrategy.connect(new ConnectionProperties());
+		this.communicationStrategy.sendRequest(new Request());
+		this.communicationStrategy.disconnect();
+		return ApplianceState.ON.getStateBehavior(this.communicationStrategy);
 	}
 
 	/* (non-Javadoc)

@@ -24,9 +24,9 @@ import eu.jpereira.trainings.designpatterns.behavioral.strategy.appliance.commun
 public abstract class AbstractApplianceStateBehavior implements ApplianceStateBehavior{
 
 	
-	protected CommunicationStrategy communicationStategy = null;
+	protected CommunicationStrategy communicationStrategy = null;
 	
-	public AbstractApplianceStateBehavior(CommunicationStrategy communicationStartegy) {
-		this.communicationStategy = communicationStartegy;
+	public AbstractApplianceStateBehavior(CommunicationStrategy communicationStrategy) {
+		this.communicationStrategy = communicationStrategy;
 	}
 }

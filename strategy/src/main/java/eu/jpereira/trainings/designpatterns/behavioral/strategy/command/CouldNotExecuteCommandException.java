@@ -22,7 +22,7 @@ package eu.jpereira.trainings.designpatterns.behavioral.strategy.command;
 public class CouldNotExecuteCommandException extends Exception {
 
 	/**
-	 * @param fillInStackTrace
+	 * @param throwable
 	 */
 	public CouldNotExecuteCommandException(Throwable throwable) {
 		super(throwable);

@@ -19,7 +19,7 @@ package eu.jpereira.trainings.designpatterns.behavioral.strategy.command.directo
  * @author jpereira
  *
  */
-public enum FailStategy {
+public enum FailStrategy {
 	DEFAULT
 
 }

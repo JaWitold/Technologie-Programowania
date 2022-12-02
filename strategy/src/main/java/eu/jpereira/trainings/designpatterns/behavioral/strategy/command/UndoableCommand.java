@@ -24,7 +24,7 @@ public interface UndoableCommand extends Command {
 	
 	
 	/**
-	 * Attempts to rollback the command execution
+	 * Attempts to roll back the command execution
 	 * @throws CouldNotRollbackCommandException
 	 */
 	void rollback() throws CouldNotRollbackCommandException;

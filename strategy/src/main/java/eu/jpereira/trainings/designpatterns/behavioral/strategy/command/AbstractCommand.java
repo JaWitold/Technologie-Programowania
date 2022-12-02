@@ -27,7 +27,7 @@ import eu.jpereira.trainings.designpatterns.behavioral.strategy.appliance.snapsh
  */
 public abstract class AbstractCommand implements UndoableCommand {
 
-	protected Appliance receiverAppliance = null;
+	protected Appliance receiverAppliance;
 	
 	protected Map<Command, Snapshot> snapshots;
 
