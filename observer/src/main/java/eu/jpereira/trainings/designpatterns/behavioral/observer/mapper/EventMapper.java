@@ -25,7 +25,7 @@ import eu.jpereira.trainings.designpatterns.behavioral.observer.observers.Applia
  * 
  * TODO Exercise: extend from {@link ApplianceEventObservable}
  */
-public interface EventMapper{
+public interface EventMapper extends  ApplianceEventObservable{
 	
 	/**
 	 * Handles the mapping process

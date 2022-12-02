@@ -1,17 +1,17 @@
 /**
  * Copyright 2011 Joao Miguel Pereira
- *
- *  Licensed under the Apache License, Version 2.0 (the "License");
- *  you may not use this file except in compliance with the License.
- *  You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- *  Unless required by applicable law or agreed to in writing, software
- *  distributed under the License is distributed on an "AS IS" BASIS,
- *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *  See the License for the specific language governing permissions and
- *  limitations under the License.
+ * <p>
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * <p>
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * <p>
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 package eu.jpereira.trainings.designpatterns.behavioral.observer.observers;
 
@@ -33,114 +33,113 @@ import eu.jpereira.trainings.designpatterns.behavioral.observer.mapper.EventMapp
 import eu.jpereira.trainings.designpatterns.behavioral.observer.mapper.MapperChain;
 
 import static org.mockito.Mockito.*;
+
 /**
  * @author windows
- * 
- * 
- * 
+ *
+ *
+ *
  * TODO: 
  * - Go to {@link EventMapper} and follow the TODO for this exercise
  * - Go {@link AbstractEventMapper} and implement the interfaces from {@link ApplianceEventObservable}
  * - Go to this class and find the TODOs
- *  
+ *
  */
 public class ApplianceEventObservableTest extends AbstractMapperTest {
 
-	@Test
-	public void testNotifyAlarm() {
+    @Test
+    public void testNotifyAlarm() {
 
-		// Create a new MapperChain
-		MapperChain chain = new MapperChain();
-		
-		//Create observers
-		ApplianceEventObserver applianceStore = createEventObserver();
-		ApplianceEventObserver applianceLogger= createEventObserver();
-		
-		EventMapper applianceEventMapper = new ApplianceEventMapper(createApplianceDAO());
-		EventMapper stateChangeMapper = new FakeStateChangeMapper();
-		EventMapper alarmMapper = new FakeAlarmMapper();
-		
-		//Attach observers to observables
-		
-		//TODO Exercise: Uncomment the following block
-		
-		/*
-		stateChangeMapper.addObserver(applianceStore);
-		stateChangeMapper.addObserver(applianceLogger);
-		alarmMapper.addObserver(applianceStore);
-		alarmMapper.addObserver(applianceLogger);
-		 */
-		
-		
-		//Add to chain
-		chain.addToChain(applianceEventMapper);
-		chain.addToChain(stateChangeMapper);
-		chain.addToChain(alarmMapper);
+        // Create a new MapperChain
+        MapperChain chain = new MapperChain();
 
-		// create dummy EventData
-		EventData eventData = createAlarmEventData();
+        //Create observers
+        ApplianceEventObserver applianceStore = createEventObserver();
+        ApplianceEventObserver applianceLogger = createEventObserver();
 
-		chain.doMap(eventData);
-		assertNotNull(eventData);
-		assertNotNull(eventData.getEvent().getSourceAppliance());
-		assertEquals("12.12.12.12", eventData.getEvent().getSourceAppliance().getIpAddress());
-		assertTrue(eventData.getEvent() instanceof Alarm);
-		
-		//Verify that the mocks method onApplianceEvent were called 
-		verify(applianceStore).onApplianceEvent(eventData.getEvent());
-		//Verify that the mocks method onApplianceEvent were called 
-		verify(applianceLogger).onApplianceEvent(eventData.getEvent());
-	}
+        EventMapper applianceEventMapper = new ApplianceEventMapper(createApplianceDAO());
+        EventMapper stateChangeMapper = new FakeStateChangeMapper();
+        EventMapper alarmMapper = new FakeAlarmMapper();
 
-	@Test
-	public void testNotifyAttributeChanged() {
+        //Attach observers to observables
 
-		// Create a new MapperChain
-		MapperChain chain = new MapperChain();
-		
-		//Create observers
-		ApplianceEventObserver applianceStore = createEventObserver();
-		ApplianceEventObserver applianceLogger= createEventObserver();
-		
-		EventMapper applianceEventMapper = new ApplianceEventMapper(createApplianceDAO());
-		EventMapper stateChangeMapper = new FakeStateChangeMapper();
-		EventMapper alarmMapper = new FakeAlarmMapper();
-		
-		//Attach observers to observables
-		//TODO Exercise: Uncomment the following block of code
-		/*
-		stateChangeMapper.addObserver(applianceStore);
-		stateChangeMapper.addObserver(applianceLogger);
-		alarmMapper.addObserver(applianceStore);
-		alarmMapper.addObserver(applianceLogger);
-		*/
+        //TODO Exercise: Uncomment the following block
 
-		
-		
-		//Add to chain
-		chain.addToChain(applianceEventMapper);
-		chain.addToChain(stateChangeMapper);
-		chain.addToChain(alarmMapper);
 
-		// create dummy EventData
-		EventData eventData = createStateChangeEventData();
+        stateChangeMapper.addObserver(applianceStore);
+        stateChangeMapper.addObserver(applianceLogger);
+        alarmMapper.addObserver(applianceStore);
+        alarmMapper.addObserver(applianceLogger);
 
-		chain.doMap(eventData);
-		assertNotNull(eventData);
-		assertNotNull(eventData.getEvent().getSourceAppliance());
-		assertEquals("12.12.12.12", eventData.getEvent().getSourceAppliance().getIpAddress());
-		assertTrue(eventData.getEvent() instanceof StateChangeEvent);
-		
-		//Verify that the mocks method onApplianceEvent were called 
-		verify(applianceStore).onApplianceEvent(eventData.getEvent());
-		//Verify that the mocks method onApplianceEvent were called 
-		verify(applianceLogger).onApplianceEvent(eventData.getEvent());
-	}
-	/**
-	 * @return
-	 */
-	private ApplianceEventObserver createEventObserver() {
-		return mock(ApplianceEventObserver.class);
-		
-	}
+
+        //Add to chain
+        chain.addToChain(applianceEventMapper);
+        chain.addToChain(stateChangeMapper);
+        chain.addToChain(alarmMapper);
+
+        // create dummy EventData
+        EventData eventData = createAlarmEventData();
+
+        chain.doMap(eventData);
+        assertNotNull(eventData);
+        assertNotNull(eventData.getEvent().getSourceAppliance());
+        assertEquals("12.12.12.12", eventData.getEvent().getSourceAppliance().getIpAddress());
+        assertTrue(eventData.getEvent() instanceof Alarm);
+
+        //Verify that the mocks method onApplianceEvent were called
+        verify(applianceStore).onApplianceEvent(eventData.getEvent());
+        //Verify that the mocks method onApplianceEvent were called
+        verify(applianceLogger).onApplianceEvent(eventData.getEvent());
+    }
+
+    @Test
+    public void testNotifyAttributeChanged() {
+
+        // Create a new MapperChain
+        MapperChain chain = new MapperChain();
+
+        //Create observers
+        ApplianceEventObserver applianceStore = createEventObserver();
+        ApplianceEventObserver applianceLogger = createEventObserver();
+
+        EventMapper applianceEventMapper = new ApplianceEventMapper(createApplianceDAO());
+        EventMapper stateChangeMapper = new FakeStateChangeMapper();
+        EventMapper alarmMapper = new FakeAlarmMapper();
+
+        //Attach observers to observables
+        //TODO Exercise: Uncomment the following block of code
+
+        stateChangeMapper.addObserver(applianceStore);
+        stateChangeMapper.addObserver(applianceLogger);
+        alarmMapper.addObserver(applianceStore);
+        alarmMapper.addObserver(applianceLogger);
+
+
+        //Add to chain
+        chain.addToChain(applianceEventMapper);
+        chain.addToChain(stateChangeMapper);
+        chain.addToChain(alarmMapper);
+
+        // create dummy EventData
+        EventData eventData = createStateChangeEventData();
+
+        chain.doMap(eventData);
+        assertNotNull(eventData);
+        assertNotNull(eventData.getEvent().getSourceAppliance());
+        assertEquals("12.12.12.12", eventData.getEvent().getSourceAppliance().getIpAddress());
+        assertTrue(eventData.getEvent() instanceof StateChangeEvent);
+
+        //Verify that the mocks method onApplianceEvent were called
+        verify(applianceStore).onApplianceEvent(eventData.getEvent());
+        //Verify that the mocks method onApplianceEvent were called
+        verify(applianceLogger).onApplianceEvent(eventData.getEvent());
+    }
+
+    /**
+     * @return
+     */
+    private ApplianceEventObserver createEventObserver() {
+        return mock(ApplianceEventObserver.class);
+
+    }
 }
