@@ -1,0 +1,9 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Run app" type="Application" factoryName="Application">
+    <option name="MAIN_CLASS_NAME" value="wppt._254622.Main" />
+    <module name="task_1" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
