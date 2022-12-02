@@ -38,10 +38,10 @@ public class TemperatureAlarmFilter implements EventFilter {
 	 * @see eu.jpereira.trainings.designpatterns.behavioral.visitor.event.filtering.EventFilter#filter(eu.jpereira.trainings.designpatterns.behavioral.visitor.event.filtering.Filterable)
 	 */
 	@Override
-	public void filter(Filterable filtearble) {
+	public void filter(Filterable filterable) {
 		
-		if (filtearble instanceof TemperatureAlarm) {
-			TemperatureAlarm temperatureAlarm = (TemperatureAlarm)filtearble;
+		if (filterable instanceof TemperatureAlarm) {
+			TemperatureAlarm temperatureAlarm = (TemperatureAlarm) filterable;
 			if (temperatureAlarm.getTemperatureValue()>this.getTemperatureThreshold()) {
 				this.results.add(temperatureAlarm);
 			}

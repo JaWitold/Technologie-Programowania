@@ -22,5 +22,5 @@ package eu.jpereira.trainings.designpatterns.behavioral.visitor.event.filtering;
 public interface EventFilter {
 
 	
-	void filter(Filterable filtearble);
+	void filter(Filterable filterable);
 }
